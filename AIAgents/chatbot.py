@@ -32,6 +32,9 @@ user_input = input("Enter:  ")
 while user_input.lower() != "exit":
     converstaion_history.append(HumanMessage(content=user_input))
     print("********************************\n")
+    print(len(converstaion_history), "messages in history")
+    if len(converstaion_history) >= 4:
+        converstaion_history = converstaion_history[2:]
     print("Conversation History:", converstaion_history)
     print("********************************\n")
     res = app.invoke({"messages": converstaion_history})
