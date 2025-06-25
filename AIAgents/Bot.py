@@ -11,6 +11,7 @@ class State(TypedDict):
 # define the processing node
 def process(state: State) -> State:
     """ Process the input and return the llm response"""
+    print("state:", state['messages'])
     response = model.invoke(state['messages'])
     print("\nAI Response:", response, "\n")
     
